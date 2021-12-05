@@ -33,6 +33,7 @@
 
 <body>
 
+    @include('sweetalert::alert')
 
     @include('backend.layouts.sidebar')
 

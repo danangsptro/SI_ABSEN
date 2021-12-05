@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\mataPelajaran;
 use Illuminate\Http\Request;
 
 class dashboardAdminController extends Controller
 {
     public function index ()
     {
-        return view('backend.dashboardAdmin');
+        $mapel = mataPelajaran::all();
+        return view('backend.dashboardAdmin', compact('mapel'));
     }
 }
