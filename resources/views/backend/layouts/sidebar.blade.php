@@ -32,7 +32,7 @@
                 <h3 class="menu-title">Data</h3>
 
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-folder"></i>Data Siswa
+                        <a href={{route('siswa')}}> <i class="menu-icon fa fa-folder"></i>Data Siswa
                         </a>
                     </li>
                 <li class="menu-item-has-children dropdown">

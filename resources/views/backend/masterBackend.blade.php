@@ -29,6 +29,8 @@
 
     <link href="{{ asset('assets/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
+    @yield('ckeditor')
+
 </head>
 
 <body>

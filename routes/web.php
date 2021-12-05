@@ -29,5 +29,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/rombel/edit/{id}', 'rombelController@edit')->name('rombel-edit');
         Route::post('/rombel/update', 'rombelController@update')->name('rombel-update');
         Route::delete('/rombel/hapus/{id}', 'rombelController@delete')->name('rombel-hapus');
+        // Siswa
+        Route::get('/siswa', 'siswaController@index')->name('siswa');
+        Route::get('/siswa/tambah', 'siswaController@create')->name('siswa-tambah');
+        Route::post('/siswa/store', 'siswaController@store')->name('siswa-tambah-post');
     });
 });

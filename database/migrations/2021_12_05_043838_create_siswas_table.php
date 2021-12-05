@@ -16,18 +16,18 @@ class CreateSiswasTable extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap')->nullable();
-            $table->integer('nisn')->nullable();
-            $table->integer('nik')->nullable();
+            $table->bigInteger('nisn')->nullable();
+            $table->bigInteger('nik')->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->bigInteger('rombel_id')->nullable()->unsigned();
             $table->string('status')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->text('alamat')->nullable();
-            $table->integer('no_telepon')->nullable();
+            $table->bigInteger('no_telepon')->nullable();
             $table->string('kebutuhan_khusus')->nullable();
             $table->string('disibilitas')->nullable();
-            $table->integer('no_kip/pip')->nullable();
+            $table->bigInteger('no_kip_pip')->nullable();
             $table->string('nama_ayah')->nullable();
             $table->string('nama_ibu')->nullable();
             $table->string('nama_wali')->nullable();
