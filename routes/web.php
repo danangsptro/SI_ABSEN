@@ -33,5 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/siswa', 'siswaController@index')->name('siswa');
         Route::get('/siswa/tambah', 'siswaController@create')->name('siswa-tambah');
         Route::post('/siswa/store', 'siswaController@store')->name('siswa-tambah-post');
+        Route::get('/siswa/edit/{id}', 'siswaController@edit')->name('siswa-edit');
+        Route::delete('/siswa/hapus/{id}', 'siswaController@delete')->name('siswa-hapus');
     });
 });

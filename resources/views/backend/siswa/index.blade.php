@@ -47,7 +47,7 @@
                                 <td>{{ $d->nama_lengkap }}</td>
                                 <td>{{ $d->rombel->tingkat_rombel }}</td>
                                 <td>
-                                    <a href="" class="btn btn-warning btn-sm" style="border-radius: 5rem"><i
+                                    <a href="{{route('siswa-edit', $d->id)}}" class="btn btn-warning btn-sm" style="border-radius: 5rem"><i
                                             class="menu-icon fa fa-edit"></i> EDIT</a>
                                     <!-- Modal -->
                                     <a href="" type="button" class="btn btn-info btn-sm" style="border-radius: 5rem"
@@ -138,7 +138,7 @@
                                         </div>
                                     </div>
                                     {{-- End Modal --}}
-                                    <form action="" class="d-inline" method="POST">
+                                    <form action="{{route('siswa-hapus', $d->id)}}" class="d-inline" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm"

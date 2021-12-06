@@ -69,6 +69,29 @@ class siswaController extends Controller
                 'style' => 'danger'
             ]);
         }
+    }
 
+    public function edit ($id)
+    {
+        $siswa = Siswa::find($id);
+        $rombel = Rombel::all();
+        return view('backend.siswa.edit', compact('siswa', 'rombel'));
+    }
+
+    public function delete($id)
+    {
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+       if ($siswa) {
+            return redirect('backend/siswa')->with([
+                'message' => "Data $siswa->nama_lengkap berhasil dihapus",
+                'style' => 'success'
+            ]);
+        } else {
+            return redirect('backend/siswa')->with([
+                'message' => "Data $siswa->nama_lengkap gagal dihapus",
+                'style' => 'danger'
+            ]);
+       }
     }
 }
