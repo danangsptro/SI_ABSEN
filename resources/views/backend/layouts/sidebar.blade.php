@@ -41,6 +41,18 @@
                     <a href={{ route('siswa') }}> <i class="menu-icon fa fa-folder"></i>Data Siswa
                     </a>
                 </li>
+
+                <li>
+                    <a href='#'> <i class="menu-icon fa fa-list-alt"></i>Laporan
+                    </a>
+                </li>
+
+
+                <h3 class="menu-title">Register User</h3>
+                    <li>
+                        <a href=""> <i class="menu-icon fa fa-user"></i>Register
+                        </a>
+                    </li>
                 {{-- <li class="menu-item-has-children dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Laporan</a>
