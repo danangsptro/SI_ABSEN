@@ -34,9 +34,6 @@
 </head>
 
 <body>
-
-    @include('sweetalert::alert')
-
     @include('backend.layouts.sidebar')
 
     @include('backend.layouts.header')

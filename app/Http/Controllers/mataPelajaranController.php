@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Model\mataPelajaran;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
-
 
 class mataPelajaranController extends Controller
 {
