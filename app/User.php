@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Http\Model\dataAbsen;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -36,4 +38,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function absenSiswa()
+    {
+        return $this->hasMany(dataAbsen::class, 'guru_id', 'id');
+    }
 }

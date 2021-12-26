@@ -18,8 +18,8 @@
                     <input type="hidden" class="form-control" name="id" value="{{ $rombel->id }}">
 
                         <div class="form-group"><label class="form-control-label"><strong>Tingkat Rombel :</strong></label>
-                            <input type="text" name="tingkat_rombel" placeholder="Masukan tingkat rombel.." class="form-control" value="{{$rombel->tingkat_rombel}}">
-                            @error('tingkat_rombel')
+                            <input type="text" name="kelas" placeholder="Masukan tingkat rombel.." class="form-control" value="{{$rombel->kelas}}">
+                            @error('kelas')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
@@ -28,7 +28,7 @@
                     <button type="submit" class="btn btn-success btn-sm" onclick="return confirm('Anda sudah benar ?')">
                         <i class="fa fa-dot-circle-o"></i> Submit
                     </button>
-                    <a href="{{ route('mata-pelajaran') }}" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i> Back</a>
+                    <a href="{{ route('rombel') }}" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i> Back</a>
                 </div>
             </div>
 

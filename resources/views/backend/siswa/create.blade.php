@@ -89,7 +89,7 @@
                                                 <option value="aktif">Aktif</option>
                                                 <option value="tidakAktif">Tidak Aktif</option>
                                             </select>
-                                            @error('tingkat_rombel')
+                                            @error('status')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                         </div>
@@ -122,20 +122,20 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="control-label mb-1">Tingkat Rombel</label>
+                                        <label class="control-label mb-1">Tingkat Kelas</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text" for="inputGroupSelect01">Options</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="rombel_id">
+                                            <select class="custom-select" id="inputGroupSelect01" name="kelas_id">
                                                 <option selected>Pilih Option</option>
                                                 @foreach ($rombel as $item)
                                                     <option value="{{ $item->id }}">
-                                                        {{ $item->tingkat_rombel }}
+                                                        {{ $item->kelas }}
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            @error('rombel_id')
+                                            @error('kelas_id')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                         </div>

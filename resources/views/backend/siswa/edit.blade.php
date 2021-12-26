@@ -7,7 +7,7 @@
 
 @section('backend')
     <div class="container mt-3">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{route('siswa-update', $siswa->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card">
                 <div class="card-header">
@@ -118,9 +118,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12">
-                                    <label for="alamat">Masukan Alamat Siswa</label>
-                                    <textarea id="editor1" class="form-control @error('alamat') is-invalid @enderror"
-                                        name="alamat" rows="3" required></textarea>
+                                    <label for="alamat">Masukan Alamat</label>
+                                    <textarea id="field" class="form-control @error('isi_berita') is-invalid @enderror" name="alamat"  required>
+                                        {{ old('alamat') ?? $siswa->alamat }}
+                                    </textarea>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
@@ -134,7 +135,7 @@
                                                 @foreach ($rombel as $ds)
                                                 <option value="{{ $ds->id }}"
                                                     {{ old('rombel_id') ?? $siswa->rombel_id == $ds->id ? 'selected' : '' }}>
-                                                    {{ $ds->tingkat_rombel }}
+                                                    {{ $ds->kelas }}
                                                 </option>
                                             @endforeach
                                             </select>

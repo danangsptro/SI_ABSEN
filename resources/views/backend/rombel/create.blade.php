@@ -5,7 +5,7 @@
 @section('backend')
     <div class="container mt-3">
         <br>
-        <h2 id="ftd">Tambah Tingkat Rombel</h2>
+        <h2 id="ftd">Tambah Tingkat Kelas</h2>
         <hr>
         <br>
         <form action="{{ route('rombel-tambah-post') }}" method="POST" enctype="multipart/form-data">
@@ -15,10 +15,10 @@
                     <strong>Table</strong> Form
                 </div>
                 <div class="card-body card-block">
-                    <div class="form-group"><label class="form-control-label"><strong>Tingkat Rombel :</strong></label>
-                        <input type="text" name="tingkat_rombel" placeholder="Masukan tingkat rombel.."
+                    <div class="form-group"><label class="form-control-label"><strong>Tingkat Kelas :</strong></label>
+                        <input type="text" name="kelas" placeholder="Masukan tingkat kelas"
                             class="form-control">
-                        @error('tingkat_rombel')
+                        @error('kelas')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

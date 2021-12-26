@@ -20,7 +20,7 @@ class CreateSiswasTable extends Migration
             $table->bigInteger('nik')->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
-            $table->bigInteger('rombel_id')->nullable()->unsigned();
+            $table->bigInteger('kelas_id')->nullable()->unsigned();
             $table->string('status')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->text('alamat')->nullable();
@@ -33,7 +33,7 @@ class CreateSiswasTable extends Migration
             $table->string('nama_wali')->nullable();
             $table->timestamps();
 
-            $table->foreign('rombel_id')->references('id')->on('rombels')->onDelete('cascade');
+            $table->foreign('kelas_id')->references('id')->on('rombels')->onDelete('cascade');
         });
     }
 

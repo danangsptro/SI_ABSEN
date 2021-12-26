@@ -45,10 +45,10 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $d->nama_lengkap }}</td>
-                                <td>{{ $d->rombel->tingkat_rombel }}</td>
+                                <td>{{ $d->rombel->kelas }}</td>
                                 <td>
-                                    <a href="{{route('siswa-edit', $d->id)}}" class="btn btn-warning btn-sm" style="border-radius: 5rem"><i
-                                            class="menu-icon fa fa-edit"></i> EDIT</a>
+                                    {{-- <a href="{{route('siswa-edit', $d->id)}}" class="btn btn-warning btn-sm" style="border-radius: 5rem"><i
+                                            class="menu-icon fa fa-edit"></i> EDIT</a> --}}
                                     <!-- Modal -->
                                     <a href="" type="button" class="btn btn-info btn-sm" style="border-radius: 5rem"
                                         data-toggle="modal" data-target="#exampleModal{{$loop->iteration}}"><i
@@ -87,7 +87,7 @@
                                                       </div>
                                                       <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Tingkat Rombel:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->rombel->tingkat_rombel}}" disabled>
+                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->rombel->kelas}}" disabled>
                                                       </div>
                                                       <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Status:</label>

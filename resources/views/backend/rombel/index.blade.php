@@ -5,7 +5,7 @@
 @section('backend')
     <br>
     <br>
-    <h1 id="ftd">Data Tingkat Rombel</h1>
+    <h1 id="ftd">Data Tingkat Kelas</h1>
     <br>
     <div class="container-fluid">
         <a href="{{route('dashboard')}}" class="btn btn-primary"><i class="menu-icon fa fa-mail-reply "></i> Kembali Halaman
@@ -33,7 +33,7 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Tingkat Rombel</th>
+                            <th scope="col">Tingkat Kelas</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -41,7 +41,7 @@
                         @foreach ($rombel as $d)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $d->tingkat_rombel }}</td>
+                                <td>{{ $d->kelas }}</td>
                                     <td>
                                         <a href="{{route('rombel-edit', $d->id)}}" class="btn btn-warning btn-sm"
                                             style="border-radius: 5rem"><i class="menu-icon fa fa-edit"></i> EDIT</a>

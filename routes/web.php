@@ -34,6 +34,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/siswa/tambah', 'siswaController@create')->name('siswa-tambah');
         Route::post('/siswa/store', 'siswaController@store')->name('siswa-tambah-post');
         Route::get('/siswa/edit/{id}', 'siswaController@edit')->name('siswa-edit');
+        Route::post('/siswa/update', 'siswaController@update')->name('siswa-update');
         Route::delete('/siswa/hapus/{id}', 'siswaController@delete')->name('siswa-hapus');
+        // Absen Siswa
+        Route::get('/absen-siswa', 'absenController@index')->name('absen-siswa');
+        Route::get('/absen-siswa/tambah', 'absenController@create')->name('absen-siswa-tambah');
+        Route::get('/absen-siswa/show/{id}', 'absenController@show')->name('absen-siswa-show');
+        Route::post('/absen-siswa/store', 'absenController@store')->name('absen-siswa-tambah-post');
+        Route::delete('/absen-siswa/hapus/{id}', 'absenController@delete')->name('absen-siswa-hapus');
     });
 });

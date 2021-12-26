@@ -59,15 +59,14 @@
 
         <div class="col-lg-3 col-md-6">
             <div class="social-box twitter">
-                <i class="fa fa-twitter"></i>
+                <i class="fa fa-user"></i>
                 <ul>
                     <li>
-                        <span class="count">30</span> k
-                        <span>friends</span>
+                        <span class="count">Total =</span>
+                        <span style="color: red; font-weight:bold">{{ $siswa->count() }}</span>
                     </li>
                     <li>
-                        <span class="count">450</span>
-                        <span>tweets</span>
+                        <span>Data Siswa</span>
                     </li>
                 </ul>
             </div>
@@ -78,15 +77,14 @@
 
         <div class="col-lg-3 col-md-6">
             <div class="social-box linkedin">
-                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-users"></i>
                 <ul>
                     <li>
-                        <span class="count">40</span> +
-                        <span>contacts</span>
+                        <span class="count">Total =</span>
+                        <span style="color: red; font-weight:bold">{{ $absen->count() }}</span>
                     </li>
                     <li>
-                        <span class="count">250</span>
-                        <span>feeds</span>
+                        <span>Data Absen</span>
                     </li>
                 </ul>
             </div>
@@ -97,15 +95,14 @@
 
         <div class="col-lg-3 col-md-6">
             <div class="social-box google-plus">
-                <i class="fa fa-google-plus"></i>
+                <i class="fa fa-signal"></i>
                 <ul>
                     <li>
-                        <span class="count">94</span> k
-                        <span>followers</span>
+                        <span class="count">Total =</span>
+                        <span style="color: red; font-weight:bold">{{ $kelas->count() }}</span>
                     </li>
                     <li>
-                        <span class="count">92</span>
-                        <span>circles</span>
+                        <span>Tingkat Kelas</span>
                     </li>
                 </ul>
             </div>

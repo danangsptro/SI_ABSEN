@@ -8,4 +8,8 @@ class mataPelajaran extends Model
 {
     protected $guarded = [];
 
+    public function dataAbsen()
+    {
+        return $this->hasMany(dataAbsen::class, 'pelajaran_id', 'id');
+    }
 }

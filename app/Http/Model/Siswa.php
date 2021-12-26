@@ -10,6 +10,6 @@ class Siswa extends Model
 
     public function rombel()
     {
-        return $this->belongsTo(Rombel::class, 'rombel_id', 'id');
+        return $this->belongsTo(Rombel::class, 'kelas_id', 'id');
     }
 }

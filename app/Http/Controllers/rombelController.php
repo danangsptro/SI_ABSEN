@@ -21,22 +21,22 @@ class rombelController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'tingkat_rombel' => 'required|unique:rombels,tingkat_rombel',
+            'kelas' => 'required|unique:rombels,kelas',
 
         ]);
 
         $rombel = Rombel::create($request->all());
-        $rombel->tingkat_rombel = $validate['tingkat_rombel'];
+        $rombel->kelas = $validate['kelas'];
         $rombel->save();
 
         if ($rombel) {
             return redirect('backend/rombel')->with([
-                'message' => "Data $rombel->tingkat_rombel berhasil ditambahkan",
+                'message' => "Data $rombel->kelas berhasil ditambahkan",
                 'style' => 'success'
             ]);
         } else {
             return redirect('backend/rombel')->with([
-                'message' => "Data $rombel->tingkat_rombel gagal ditambahkan",
+                'message' => "Data $rombel->kelas gagal ditambahkan",
                 'style' => 'danger'
             ]);
         }
@@ -51,26 +51,26 @@ class rombelController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'tingkat_rombel' => 'required|unique:rombels,tingkat_rombel',
+            'kelas' => 'required|unique:rombels,kelas',
         ]);
 
         $id = $request->id;
         $rombel = Rombel::find($id);
         if ($rombel != null) {
             $rombel->update([
-                'tingkat_rombel' => $request->tingkat_rombel,
+                'kelas' => $request->kelas,
             ]);
         }
         $rombel->save();
 
         if ($rombel) {
             return redirect('backend/rombel')->with([
-                'message' => "Data $rombel->tingkat_rombel berhasil diubah",
+                'message' => "Data $rombel->kelas berhasil diubah",
                 'style' => 'success'
             ]);
         } else {
             return redirect('backend/rombel')->with([
-                'message' => "Data $rombel->tingkat_rombel gagal diubah",
+                'message' => "Data $rombel->kelas gagal diubah",
                 'style' => 'danger'
             ]);
         }
@@ -84,12 +84,12 @@ class rombelController extends Controller
 
         if ($rombel) {
             return redirect('backend/rombel')->with([
-                'message' => "Data $rombel->tingkat_rombel berhasil dihapus",
+                'message' => "Data $rombel->kelas berhasil dihapus",
                 'style' => 'success'
             ]);
         } else {
             return redirect('backend/rombel')->with([
-                'message' => "Data $rombel->tingkat_rombel gagal dihapus",
+                'message' => "Data $rombel->kelas gagal dihapus",
                 'style' => 'danger'
             ]);
         }
