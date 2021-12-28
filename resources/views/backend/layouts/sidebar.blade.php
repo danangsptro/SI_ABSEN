@@ -33,10 +33,10 @@
                 @endif
 
                 <h3 class="menu-title">Data</h3>
-                    <li>
-                        <a href="{{ route('absen-siswa') }}"> <i class="menu-icon fa fa-folder"></i>Data Absen
-                        </a>
-                    </li>
+                <li>
+                    <a href="{{ route('absen-siswa') }}"> <i class="menu-icon fa fa-folder"></i>Data Absen
+                    </a>
+                </li>
                 <li>
                     <a href={{ route('siswa') }}> <i class="menu-icon fa fa-folder"></i>Data Siswa
                     </a>
@@ -48,31 +48,14 @@
                 </li>
 
 
-                <h3 class="menu-title">Register User</h3>
+                @if (Auth::user()->user_role == 'staff')
+                    <h3 class="menu-title">Register User</h3>
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-user"></i>Register
+                        <a href="{{ route('register-user') }}"> <i class="menu-icon fa fa-user"></i>Register
                         </a>
                     </li>
-                {{-- <li class="menu-item-has-children dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Laporan</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li>
-                            <i class="fa fa-table"></i><a href="">Lihat Laporan</a>
-                        </li>
-                    </ul>
-                </li> --}}
-                {{-- <h3 class="menu-title">USER</h3>
-                <li class="menu-item-has-children dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Test</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li>
-                            <i class="fa fa-table"></i><a href="">User</a>
-                        </li>
-                    </ul>
-                </li> --}}
-            </ul>
+
+                @endif
         </div>
     </nav>
 </aside>

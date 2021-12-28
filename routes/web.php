@@ -15,6 +15,9 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('backend')->group(function () {
         Route::get('/dashboard', 'dashboardAdminController@index')->name('dashboard');
+        Route::get('/register-user', 'registerUserController@index')->name('register-user');
+        Route::post('/register-user/store/{id?}', 'registerUserController@store')->name('register-user-store');
+        Route::get('/register-user/delete/{id}', 'registerUserController@deleteUser')->name('register-user-delete');
         // Mata Pelajaran
         Route::get('/mata-pelajaran', 'mataPelajaranController@index')->name('mata-pelajaran');
         Route::get('/mata-pelajaran/tambah', 'mataPelajaranController@create')->name('mata-pelajaran-tambah');

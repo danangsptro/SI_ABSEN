@@ -15,6 +15,8 @@ class AddDataUserToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('user_role')->nullable()->after('name');
+            $table->string('jenis_kelamin')->nullable()->after('user_role');
+            $table->string('password_exist')->default('qwerty')->after('jenis_kelamin');
         });
     }
 
