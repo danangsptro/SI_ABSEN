@@ -24,12 +24,6 @@ class CreateSiswasTable extends Migration
             $table->string('status')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->text('alamat')->nullable();
-            $table->bigInteger('no_telepon')->nullable();
-            $table->string('kebutuhan_khusus')->nullable();
-            $table->string('disibilitas')->nullable();
-            $table->string('nama_ayah')->nullable();
-            $table->string('nama_ibu')->nullable();
-            $table->string('nama_wali')->nullable();
             $table->timestamps();
 
             $table->foreign('kelas_id')->references('id')->on('rombels')->onDelete('cascade');

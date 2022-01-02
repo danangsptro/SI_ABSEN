@@ -51,9 +51,9 @@
                                             class="menu-icon fa fa-edit"></i> EDIT</a> --}}
                                     <!-- Modal -->
                                     <a href="" type="button" class="btn btn-info btn-sm" style="border-radius: 5rem"
-                                        data-toggle="modal" data-target="#exampleModal{{$loop->iteration}}"><i
+                                        data-toggle="modal" data-target="#exampleModal{{ $loop->iteration }}"><i
                                             class="menu-icon fa fa-arrows-alt"></i> Show</a>
-                                    <div class="modal fade" id="exampleModal{{$loop->iteration}}" tabindex="-1"
+                                    <div class="modal fade" id="exampleModal{{ $loop->iteration }}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
@@ -66,65 +66,55 @@
                                                 </div>
                                                 <div class="modal-body" style="text-align: left">
                                                     <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Nama Lengkap:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->nama_lengkap}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Nama
+                                                            Lengkap:</label>
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->nama_lengkap }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">NISN:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->nisn}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->nisn }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">NIK:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->nik}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Tempat Lahir:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->tempat_lahir}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Tanggal Lahir:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->tanggal_lahir}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Tingkat Rombel:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->rombel->kelas}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->nik }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Tempat
+                                                            Lahir:</label>
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->tempat_lahir }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Tanggal
+                                                            Lahir:</label>
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->tanggal_lahir }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Tingkat
+                                                            Rombel:</label>
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->rombel->kelas }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Status:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->status}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->jenis_kelamin}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->status }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Jenis
+                                                            Kelamin:</label>
+                                                        <input type="text" class="form-control" id="recipient-name"
+                                                            value="{{ $d->jenis_kelamin }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Alamat:</label>
-                                                        <textarea class="form-control" id="recipient-name"  disabled>{{$d->alamat}}</textarea>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">No Telepon:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->no_telepon}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Kebutuhan Khusus:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->kebutuhan_khusus}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Disibilitas:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->disibilitas}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Nama Ayah:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->nama_ayah}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Nama Ibu:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->nama_ibu}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Nama Wali:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->nama_wali}}" disabled>
-                                                      </div>
+                                                        <textarea class="form-control" id="recipient-name"
+                                                            disabled>{{ $d->alamat }}</textarea>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
@@ -134,7 +124,7 @@
                                         </div>
                                     </div>
                                     {{-- End Modal --}}
-                                    <form action="{{route('siswa-hapus', $d->id)}}" class="d-inline" method="POST">
+                                    <form action="{{ route('siswa-hapus', $d->id) }}" class="d-inline" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm"

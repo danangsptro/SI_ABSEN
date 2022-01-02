@@ -56,20 +56,6 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="x_card_code" class="control-label mb-1">No Telepon</label>
-                                    <div class="input-group">
-                                        <input id="x_card_code" name="no_telepon" type="number" class="form-control cc-cvc"
-                                            data-val="true" placeholder="Masukan no telepon siswa" autocomplete="off" value="{{$siswa->no_telepon}}">
-                                        @error('no_telepon')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                        <div class="input-group-addon">
-                                            <span class="fa fa-phone fa-lg" data-toggle="popover"
-                                                data-trigger="hover"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
                                     <div class="form-group">
                                         <label class="control-label mb-1">Jenis Kelamin</label>
                                         <input name="jenis_kelamin" type="text" class="form-control" aria-required="true"
@@ -143,57 +129,6 @@
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Kebutuhan Khusus</label>
-                                        <input name="kebutuhan_khusus" type="text" class="form-control"
-                                            aria-required="true" aria-invalid="false"
-                                            placeholder="Masukan kebutuhan khusus siswa jika ada" value="{{$siswa->kebutuhan_khusus}}">
-                                        @error('kebutuhan_khusus')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Disibilitas</label>
-                                        <input name="disibilitas" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan disibilitas siswa jika ada" value="{{$siswa->disibilitas}}">
-                                        @error('disibilitas')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Nama Ayah</label>
-                                        <input name="nama_ayah" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan nama wali ayah" value="{{$siswa->nama_ayah}}">
-                                        @error('nama_ayah')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Nama Ibu</label>
-                                        <input name="nama_ibu" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan nama ibu" value="{{$siswa->nama_ibu}}">
-                                        @error('nama_ibu')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Nama Wali</label>
-                                        <input name="nama_wali" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan nama wali siswa" value="{{$siswa->nama_wali}}">
-                                        @error('nama_wali')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
                                     </div>
                                 </div>
                             </div>

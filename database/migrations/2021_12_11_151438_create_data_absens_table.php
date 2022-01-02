@@ -25,7 +25,7 @@ class CreateDataAbsensTable extends Migration
             $table->date('tanggal_absen')->nullable();
             $table->timestamps();
 
-            $table->foreign('kelas_id')->references('id')->on('siswas')->onDelete('cascade');
+            $table->foreign('kelas_id')->references('id')->on('rombels')->onDelete('cascade');
             $table->foreign('guru_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('pelajaran_id')->references('id')->on('mata_pelajarans')->onDelete('cascade');
         });

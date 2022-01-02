@@ -7,7 +7,7 @@
 
 @section('backend')
     <div class="container mt-3">
-        <form action="{{route('siswa-tambah-post')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('siswa-tambah-post') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card">
                 <div class="card-header">
@@ -47,24 +47,9 @@
                                         <label class="control-label mb-1">Nama</label>
                                         <input name="nama_lengkap" type="text" class="form-control" aria-required="true"
                                             aria-invalid="false" placeholder="Masukan nama lengkap siswa">
-                                            @error('nama')
+                                        @error('nama')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label for="x_card_code" class="control-label mb-1">No Telepon</label>
-                                    <div class="input-group">
-                                        <input id="x_card_code" name="no_telepon" type="number" class="form-control cc-cvc"
-                                            data-val="true" placeholder="Masukan no telepon siswa"
-                                            autocomplete="off">
-                                            @error('no_telepon')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                        <div class="input-group-addon">
-                                            <span class="fa fa-phone fa-lg" data-toggle="popover"
-                                                data-trigger="hover"></span>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -80,8 +65,8 @@
                                                 <option value="perempuan">Perempuan</option>
                                             </select>
                                             @error('status')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -98,37 +83,12 @@
                                                 <option value="tidakAktif">Tidak Aktif</option>
                                             </select>
                                             @error('status')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Tempat Lahir</label>
-                                        <input name="tempat_lahir" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan tempat lahir siswa">
-                                            @error('tempat_lahir')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Tanggal Lahir</label>
-                                        <input name="tanggal_lahir" type="date" class="form-control" aria-required="true"
-                                            aria-invalid="false">
-                                            @error('tanggal_lahir')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <label for="alamat">Masukan Alamat Siswa</label>
-                                    <textarea id="editor1" class="form-control @error('alamat') is-invalid @enderror"
-                                        name="alamat" rows="3" required></textarea>
-                                </div>
-                                <div class="col-12">
                                     <div class="form-group">
                                         <label class="control-label mb-1">Tingkat Kelas</label>
                                         <div class="input-group mb-3">
@@ -144,76 +104,35 @@
                                                 @endforeach
                                             </select>
                                             @error('kelas_id')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="control-label mb-1">Kebutuhan Khusus</label>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="kebutuhan_khusus">
-                                                <option selected>Pilih Option</option>
-                                                <option value="ada">Ada</option>
-                                                <option value="tidak-ada">Tidak Ada</option>
-                                            </select>
-                                            @error('status')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Disibilitas</label>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01" name="disibilitas">
-                                                <option selected>Pilih Option</option>
-                                                <option value="ada">Ada</option>
-                                                <option value="tidak-ada">Tidak Ada</option>
-                                            </select>
-                                            @error('status')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Nama Ayah</label>
-                                        <input name="nama_ayah" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan nama wali ayah">
-                                            @error('nama_ayah')
+                                        <label class="control-label mb-1">Tanggal Lahir</label>
+                                        <input name="tanggal_lahir" type="date" class="form-control" aria-required="true"
+                                            aria-invalid="false">
+                                        @error('tanggal_lahir')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="control-label mb-1">Nama Ibu</label>
-                                        <input name="nama_ibu" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan nama ibu">
-                                            @error('nama_ibu')
+                                        <label class="control-label mb-1">Tempat Lahir</label>
+                                        <input name="tempat_lahir" type="text" class="form-control" aria-required="true"
+                                            aria-invalid="false" placeholder="Masukan tempat lahir siswa">
+                                        @error('tempat_lahir')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">Nama Wali</label>
-                                        <input name="nama_wali" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan nama wali siswa">
-                                            @error('nama_wali')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="alamat">Masukan Alamat Siswa</label>
+                                    <textarea id="editor1" class="form-control @error('alamat') is-invalid @enderror"
+                                        name="alamat" rows="3" required></textarea>
                                 </div>
                             </div>
                             <div>

@@ -11,7 +11,7 @@
         <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="menu-icon fa fa-mail-reply "></i> Kembali
             Halaman
             Dashboard</a>
-        @if (Auth::user()->user_role == 'guru')
+        @if (Auth::user()->user_role == 'staff')
             <a href="{{ route('absen-siswa-tambah') }}" class="btn btn-warning"><i class="menu-icon fa  fa-plus-square"></i>
                 Tambah Data</a>
         @endif

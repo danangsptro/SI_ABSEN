@@ -32,12 +32,6 @@ class siswaController extends Controller
             'status' => 'required|min:1',
             'jenis_kelamin' => 'required|min:1',
             'alamat' => 'required|min:1',
-            'no_telepon' => 'required|min:1',
-            'kebutuhan_khusus' =>  'required|min:1',
-            'disibilitas' => 'required|min:3',
-            'nama_ayah' => 'required|min:1',
-            'nama_ibu' => 'required|min:1',
-            'nama_wali' => 'required|min:1',
         ]);
 
         $siswa = Siswa::create($request->all());
@@ -50,12 +44,6 @@ class siswaController extends Controller
         $siswa->status = $validate['status'];
         $siswa->jenis_kelamin = $validate['jenis_kelamin'];
         $siswa->alamat = $validate['alamat'];
-        $siswa->no_telepon = $validate['no_telepon'];
-        $siswa->kebutuhan_khusus = $validate['kebutuhan_khusus'];
-        $siswa->disibilitas = $validate['disibilitas'];
-        $siswa->nama_ayah = $validate['nama_ayah'];
-        $siswa->nama_ibu = $validate['nama_ibu'];
-        $siswa->nama_wali = $validate['nama_wali'];
         $siswa->save();
 
         if ($siswa) {
@@ -90,12 +78,6 @@ class siswaController extends Controller
             'status' => 'required|min:1',
             'jenis_kelamin' => 'required|min:1',
             'alamat' => 'required|min:1',
-            'no_telepon' => 'required|min:1',
-            'kebutuhan_khusus' =>  'required|min:1',
-            'disibilitas' => 'required|min:3',
-            'nama_ayah' => 'required|min:1',
-            'nama_ibu' => 'required|min:1',
-            'nama_wali' => 'required|min:1',
         ]);
 
         $id = $request->id;
@@ -116,13 +98,6 @@ class siswaController extends Controller
             $siswa->status = $request->status;
             $siswa->jenis_kelamin = $request->jenis_kelamin;
             $siswa->alamat = $request->alamat;
-            $siswa->no_telepon = $request->no_telepon;
-            $siswa->kebutuhan_khusus = $request->kebutuhan_khusus;
-            $siswa->disibilitas = $request->disibilitas;
-            $siswa->nama_ayah = $request->nama_ayah;
-            $siswa->nama_ibu = $request->nama_ibu;
-            $siswa->nama_wali = $request->nama_wali;
-            $siswa->save();
         }
 
         if ($siswa) {
