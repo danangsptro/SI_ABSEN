@@ -39,6 +39,7 @@
             </div>
         </div>
         <br>
+        @if (Auth::user()->user_role == 'staff')
         <div class="col-lg-3 col-md-6">
             <div class="social-box facebook">
                 <i class="fa fa-book"></i>
@@ -54,24 +55,27 @@
             </div>
             <!--/social-box-->
         </div>
+        @endif
         <!--/.col-->
 
 
-        <div class="col-lg-3 col-md-6">
-            <div class="social-box twitter">
-                <i class="fa fa-user"></i>
-                <ul>
-                    <li>
-                        <span class="count">Total =</span>
-                        <span style="color: red; font-weight:bold">{{ $siswa->count() }}</span>
-                    </li>
-                    <li>
-                        <span>Data Siswa</span>
-                    </li>
-                </ul>
-            </div>
-            <!--/social-box-->
+      @if (Auth::user()->user_role == 'staff')
+      <div class="col-lg-3 col-md-6">
+        <div class="social-box twitter">
+            <i class="fa fa-user"></i>
+            <ul>
+                <li>
+                    <span class="count">Total =</span>
+                    <span style="color: red; font-weight:bold">{{ $siswa->count() }}</span>
+                </li>
+                <li>
+                    <span>Data Siswa</span>
+                </li>
+            </ul>
         </div>
+        <!--/social-box-->
+    </div>
+      @endif
         <!--/.col-->
 
 
@@ -93,6 +97,7 @@
         <!--/.col-->
 
 
+        @if (Auth::user()->user_role == 'staff')
         <div class="col-lg-3 col-md-6">
             <div class="social-box google-plus">
                 <i class="fa fa-signal"></i>
@@ -108,6 +113,7 @@
             </div>
             <!--/social-box-->
         </div>
+        @endif
         <!--/.col-->
 
     @endsection
