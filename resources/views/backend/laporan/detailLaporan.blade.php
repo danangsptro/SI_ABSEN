@@ -1,33 +1,16 @@
 @extends('backend.masterbackend')
-@section('title', 'ABSEN | Data Absen')
+@section('title', 'ABSEN | LAPORAN')
 
 
 @section('backend')
     <br>
     <br>
-    <h1 id="ftd">Data Abses Siswa</h1>
+    <h1 id="ftd">Data Detail Laporan</h1>
     <br>
     <div class="container-fluid">
-        <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="menu-icon fa fa-mail-reply "></i> Kembali
+        <a href="{{ route('laporan') }}" class="btn btn-primary"><i class="menu-icon fa fa-mail-reply "></i> Kembali
             Halaman
-            Dashboard</a>
-        @if (Auth::user()->user_role == 'guru')
-            <a href="{{ route('absen-siswa-tambah') }}" class="btn btn-warning"><i class="menu-icon fa  fa-plus-square"></i>
-                Tambah Data</a>
-        @endif
-        <br><br>
-
-        @if (session('message'))
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                    <span class="badge badge-pill badge-success">Sukses</span> {{ session('message') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        @endif
-
+            Laporan</a>
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">Data Table</strong>
@@ -44,11 +27,11 @@
                             <th scope="col">Izin</th>
                             <th scope="col">Terlambat</th>
                             <th scope="col">Tanggal Absen</th>
-                            <th scope="col">Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($dataAbsen as $d)
+                        @foreach ($mataPelajaran as $d)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $d->siswa->nama_lengkap }} | {{$d->siswa->rombel->kelas}}</td>
@@ -58,7 +41,7 @@
                                 <td>{{ $d->izin }}</td>
                                 <td>{{ $d->terlambat }}</td>
                                 <td>{{ $d->tanggal_absen }}</td>
-                                <td><a href="{{route('absen-siswa-edit', $d->id)}}" class="btn btn-dark">Edit</a></td>
+
                             </tr>
                         @endforeach
                     </tbody>

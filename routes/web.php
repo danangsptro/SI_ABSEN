@@ -44,6 +44,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/absen-siswa/tambah', 'absenController@create')->name('absen-siswa-tambah');
         Route::get('/absen-siswa/show/{id}', 'absenController@show')->name('absen-siswa-show');
         Route::post('/absen-siswa/store', 'absenController@store')->name('absen-siswa-tambah-post');
+        Route::get('/absen-siswa/edit/{id}', 'absenController@edit')->name('absen-siswa-edit');
         Route::delete('/absen-siswa/hapus/{id}', 'absenController@delete')->name('absen-siswa-hapus');
+        // Laporan
+        Route::get('/laporan', 'laporanController@index')->name('laporan');
+        Route::get('/laporan/show/{id}', 'laporanController@show')->name('laporan-show');
+        Route::get('/laporan/detail-laporan/{id}', 'laporanController@detailLaporan')->name('laporan-detail');
+
     });
 });

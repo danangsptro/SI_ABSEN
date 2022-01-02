@@ -70,11 +70,19 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="control-label mb-1">Jenis Kelamin</label>
-                                        <input name="jenis_kelamin" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan nama lengkap siswa">
-                                            @error('jenis_kelamin')
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="jenis_kelamin">
+                                                <option selected>Pilih Option</option>
+                                                <option value="laki-laki">Laki-laki</option>
+                                                <option value="perempuan">Perempuan</option>
+                                            </select>
+                                            @error('status')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -144,32 +152,37 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="control-label mb-1">Kebutuhan Khusus</label>
-                                        <input name="kebutuhan_khusus" type="text" class="form-control"
-                                            aria-required="true" aria-invalid="false"
-                                            placeholder="Masukan kebutuhan khusus siswa jika ada">
-                                            @error('kebutuhan_khusus')
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="kebutuhan_khusus">
+                                                <option selected>Pilih Option</option>
+                                                <option value="ada">Ada</option>
+                                                <option value="tidak-ada">Tidak Ada</option>
+                                            </select>
+                                            @error('status')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="control-label mb-1">Disibilitas</label>
-                                        <input name="disibilitas" type="text" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan disibilitas siswa jika ada">
-                                            @error('disibilitas')
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="disibilitas">
+                                                <option selected>Pilih Option</option>
+                                                <option value="ada">Ada</option>
+                                                <option value="tidak-ada">Tidak Ada</option>
+                                            </select>
+                                            @error('status')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label class="control-label mb-1">No KIP/PIP Siswa</label>
-                                        <input name="no_kip_pip" type="number" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan no kip/pip siswa jika ada">
-                                            @error('no_kip_pip')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-6">

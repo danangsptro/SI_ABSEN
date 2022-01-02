@@ -18,11 +18,14 @@ class CreateDataAbsensTable extends Migration
             $table->bigInteger('kelas_id')->unsigned();
             $table->bigInteger('pelajaran_id')->unsigned();
             $table->bigInteger('guru_id')->unsigned();
-            $table->string('keterangan')->nullable()->default(null);
-            $table->date('tanggal_absen')->nullable()->default(null);
+            $table->string('alfa')->nullable();
+            $table->string('sakit')->nullable();
+            $table->string('izin')->nullable();
+            $table->string('terlambat')->nullable();
+            $table->date('tanggal_absen')->nullable();
             $table->timestamps();
 
-            $table->foreign('kelas_id')->references('id')->on('rombels')->onDelete('cascade');
+            $table->foreign('kelas_id')->references('id')->on('siswas')->onDelete('cascade');
             $table->foreign('guru_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('pelajaran_id')->references('id')->on('mata_pelajarans')->onDelete('cascade');
         });

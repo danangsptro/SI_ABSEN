@@ -156,9 +156,9 @@
                                                                                 <select class="custom-select"
                                                                                     id="inputGroupSelect01"
                                                                                     name="user_role">
-                                                                                    <option value="staff {{ $d->user_role == 'staff' ? 'selected' : '' }}">Staff</option>
-                                                                                    <option value="guru {{ $d->user_role == 'guru' ? 'selected' : '' }}">Guru</option>
-                                                                                    <option value="walikelas {{ $d->user_role == 'walikelas' ? 'selected' : '' }}">Wali Kelas</option>
+                                                                                    <option value="staff">Staff</option>
+                                                                                    <option value="guru">Guru</option>
+                                                                                    <option value="walikelas">Wali Kelas</option>
 
                                                                                 </select>
                                                                             </div>

@@ -37,13 +37,17 @@
                     <a href="{{ route('absen-siswa') }}"> <i class="menu-icon fa fa-folder"></i>Data Absen
                     </a>
                 </li>
+
+                @if (Auth::user()->user_role == 'staff')
                 <li>
                     <a href={{ route('siswa') }}> <i class="menu-icon fa fa-folder"></i>Data Siswa
                     </a>
                 </li>
 
+                @endif
+
                 <li>
-                    <a href='#'> <i class="menu-icon fa fa-list-alt"></i>Laporan
+                    <a href='{{route('laporan')}}'> <i class="menu-icon fa fa-list-alt"></i>Laporan
                     </a>
                 </li>
 

@@ -12,4 +12,9 @@ class Siswa extends Model
     {
         return $this->belongsTo(Rombel::class, 'kelas_id', 'id');
     }
+
+    public function dataAbsen()
+    {
+        return $this->hasMany(dataAbsen::class, 'kelas_id', 'id');
+    }
 }

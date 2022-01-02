@@ -29,7 +29,7 @@
                                                 <option selected disabled>Pilih Option</option>
                                                 @foreach ($siswa as $item)
                                                     <option value="{{ $item->id }}">
-                                                        {{$item->kelas}}
+                                                        {{ $item->nama_lengkap }} | {{ $item->rombel->kelas }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -80,6 +80,103 @@
                                                 @endforeach
                                             </select>
                                             @error('guru_id')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">Tanggal Absen</label>
+                                        <input name="tanggal_absen" type="date" class="form-control" aria-required="true"
+                                            aria-invalid="false">
+                                        @error('tanggal_absen')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">Alfa</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="alfa">
+                                                <option selected>Pilih Option</option>
+                                                <option value="Alfa">Iya</option>
+                                                <option value="Tidak Alfa">Tidak</option>
+                                            </select>
+                                            @error('status')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">Sakit</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="sakit">
+                                                <option selected>Pilih Option</option>
+                                                <option value="Sakit">Iya</option>
+                                                <option value="Tidak Sakit">Tidak</option>
+                                            </select>
+                                            @error('status')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">Izin</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="izin">
+                                                <option selected>Pilih Option</option>
+                                                <option value="Izin">Iya</option>
+                                                <option value="Tidak Izin">Tidak</option>
+                                            </select>
+                                            @error('status')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">Terlambat</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01" name="terlambat">
+                                                <option selected>Pilih Option</option>
+                                                <option value="Terlambat">Iya</option>
+                                                <option value="Tidak Terlambat">Tidak</option>
+                                            </select>
+                                            @error('status')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

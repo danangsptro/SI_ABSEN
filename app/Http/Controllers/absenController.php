@@ -15,15 +15,12 @@ class absenController extends Controller
     public function index()
     {
         $dataAbsen = dataAbsen::all();
-        $id = Auth::user()->id;
-        $absen = dataAbsen::where('pelajaran_id', $id)->get();
-        // dd($absen);
-        return view('backend.absenSiswa.index', compact('dataAbsen', 'absen'));
+        return view('backend.absenSiswa.index', compact('dataAbsen'));
     }
 
     public function create()
     {
-        $siswa = Rombel::all();
+        $siswa = Siswa::all();
         $mataPelajaran = mataPelajaran::all();
         $guru = User::where('user_role', 'guru')->get();
         return view('backend.absenSiswa.create', compact('siswa', 'mataPelajaran', 'guru'));
@@ -34,7 +31,6 @@ class absenController extends Controller
         $siswa = Siswa::with('rombel')->get();
         $auth = Auth::user()->id;
         $mataPelajaran = Rombel::with('dataAbsen')->where('kelas_id', $auth)->get();
-        dd($mataPelajaran);
         return view('backend.absenSiswa.show', compact('siswa', 'mataPelajaran'));
     }
 
@@ -44,12 +40,22 @@ class absenController extends Controller
             'kelas_id' => 'required|min:1',
             'pelajaran_id' => 'required|min:1',
             'guru_id' => 'required|min:1',
+            'alfa' => 'required|min:1',
+            'izin' => 'required|min:1',
+            'sakit' => 'required|min:1',
+            'terlambat' => 'required|min:1',
+            'tanggal_absen' => 'required|min:1',
         ]);
 
         $result = dataAbsen::create($request->all());
         $result->kelas_id = $validate['kelas_id'];
         $result->pelajaran_id = $validate['pelajaran_id'];
         $result->guru_id = $validate['guru_id'];
+        $result->alfa = $validate['alfa'];
+        $result->izin = $validate['izin'];
+        $result->sakit = $validate['sakit'];
+        $result->terlambat = $validate['terlambat'];
+        $result->tanggal_absen = $validate['tanggal_absen'];
         $result->save();
 
         if ($result) {
@@ -64,6 +70,15 @@ class absenController extends Controller
             ]);
         }
     }
+
+    public function edit ($id)
+    {
+        $dataAbsen = dataAbsen::find($id);
+        $siswa = Siswa::all();
+        $mataPelajaran = mataPelajaran::all();
+        return view('backend.absenSiswa.edit', compact('dataAbsen', 'siswa', 'mataPelajaran'));
+    }
+
 
     public function delete($id)
     {

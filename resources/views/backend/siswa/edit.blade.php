@@ -168,16 +168,6 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label class="control-label mb-1">No KIP/PIP Siswa</label>
-                                        <input name="no_kip_pip" type="number" class="form-control" aria-required="true"
-                                            aria-invalid="false" placeholder="Masukan no kip/pip siswa jika ada" value="{{$siswa->no_kip_pip}}">
-                                        @error('no_kip_pip')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
                                         <label class="control-label mb-1">Nama Ayah</label>
                                         <input name="nama_ayah" type="text" class="form-control" aria-required="true"
                                             aria-invalid="false" placeholder="Masukan nama wali ayah" value="{{$siswa->nama_ayah}}">

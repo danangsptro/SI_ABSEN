@@ -36,7 +36,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Tingkat Rombel</th>
+                            <th scope="col">Kelas</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -112,10 +112,6 @@
                                                       <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Disibilitas:</label>
                                                         <input type="text" class="form-control" id="recipient-name" value="{{$d->disibilitas}}" disabled>
-                                                      </div>
-                                                      <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">No KIP/PIP:</label>
-                                                        <input type="text" class="form-control" id="recipient-name" value="{{$d->no_kip_pip}}" disabled>
                                                       </div>
                                                       <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Nama Ayah:</label>

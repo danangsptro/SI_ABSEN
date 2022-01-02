@@ -35,7 +35,6 @@ class siswaController extends Controller
             'no_telepon' => 'required|min:1',
             'kebutuhan_khusus' =>  'required|min:1',
             'disibilitas' => 'required|min:3',
-            'no_kip_pip' => 'required|min:1',
             'nama_ayah' => 'required|min:1',
             'nama_ibu' => 'required|min:1',
             'nama_wali' => 'required|min:1',
@@ -54,7 +53,6 @@ class siswaController extends Controller
         $siswa->no_telepon = $validate['no_telepon'];
         $siswa->kebutuhan_khusus = $validate['kebutuhan_khusus'];
         $siswa->disibilitas = $validate['disibilitas'];
-        $siswa->no_kip_pip = $validate['no_kip_pip'];
         $siswa->nama_ayah = $validate['nama_ayah'];
         $siswa->nama_ibu = $validate['nama_ibu'];
         $siswa->nama_wali = $validate['nama_wali'];
@@ -95,7 +93,6 @@ class siswaController extends Controller
             'no_telepon' => 'required|min:1',
             'kebutuhan_khusus' =>  'required|min:1',
             'disibilitas' => 'required|min:3',
-            'no_kip_pip' => 'required|min:1',
             'nama_ayah' => 'required|min:1',
             'nama_ibu' => 'required|min:1',
             'nama_wali' => 'required|min:1',
@@ -122,7 +119,6 @@ class siswaController extends Controller
             $siswa->no_telepon = $request->no_telepon;
             $siswa->kebutuhan_khusus = $request->kebutuhan_khusus;
             $siswa->disibilitas = $request->disibilitas;
-            $siswa->no_kip_pip = $request->no_kip_pip;
             $siswa->nama_ayah = $request->nama_ayah;
             $siswa->nama_ibu = $request->nama_ibu;
             $siswa->nama_wali = $request->nama_wali;

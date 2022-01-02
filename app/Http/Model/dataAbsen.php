@@ -16,7 +16,7 @@ class dataAbsen extends Model
 
     public function siswa ()
     {
-        return $this->belongsTo(Rombel::class, 'kelas_id', 'id');
+        return $this->belongsTo(Siswa::class, 'kelas_id', 'id');
     }
 
     public function guru ()

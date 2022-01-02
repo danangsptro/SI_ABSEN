@@ -27,7 +27,6 @@ class CreateSiswasTable extends Migration
             $table->bigInteger('no_telepon')->nullable();
             $table->string('kebutuhan_khusus')->nullable();
             $table->string('disibilitas')->nullable();
-            $table->bigInteger('no_kip_pip')->nullable();
             $table->string('nama_ayah')->nullable();
             $table->string('nama_ibu')->nullable();
             $table->string('nama_wali')->nullable();
