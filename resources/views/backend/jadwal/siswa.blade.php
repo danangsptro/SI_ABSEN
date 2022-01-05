@@ -42,8 +42,7 @@
                     </form>
                 </div>
                 <div class="col-8">
-                    <strong>List Penanda Tangan:</strong>
-                    <ol id="viewPermission" class=""></ol>
+                   
                 </div>
             </div>
         </div>
@@ -52,21 +51,6 @@
 @endsection
 @section('script')
 <script type="text/javascript">
-    getPermissions();
-    function getPermissions(){
-        $('#viewPermission').html("Loading...");
-        urlPermission = "{{ route($route.'getPenandaTangan', ':id') }}".replace(':id', $('#id').val());
-        $.get(urlPermission, function(data){
-            $('#viewPermission').html("");
-            if(data.length > 0){
-                $.each(data, function(index, value){
-                    val = "'" + value.id + "'";
-                    $('#viewPermission').append('<li>' + value.full_name + ' [ NIP. '+value.nip+' ] <a href="#" onclick="removePermission(' + val + ')" class="text-danger" title="Hapus Data"><i class="icon-remove"></i></a></li>');
-                });
-            }else{
-                $('#viewPermission').html("<em>Penanda Tangan kosong.</em>");
-            }
-        });
-    }
+    
 </script>
 @endsection
