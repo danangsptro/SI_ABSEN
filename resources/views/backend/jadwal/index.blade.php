@@ -5,6 +5,7 @@
     <h1 id="ftd" class="mb-5">Data Jadwal Siswa</h1>
     <div class="container-fluid">
         <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="menu-icon fa fa-mail-reply "></i> Kembali Halaman Dashboard</a>
+        <a href="{{ route('absen-siswa-tambah') }}" class="btn btn-warning"><i class="menu-icon fa fa-plus-square mr-2"></i>Tambah Data</a>
         @if (session('message'))
             <div class="col-sm-12">
                 <div class="alert  alert-success alert-dismissible fade show" role="alert">
