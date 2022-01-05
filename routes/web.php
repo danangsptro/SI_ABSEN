@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/laporan', 'laporanController@index')->name('laporan');
         Route::get('/laporan/show/{id}', 'laporanController@show')->name('laporan-show');
         Route::get('/laporan/detail-laporan/{id}', 'laporanController@detailLaporan')->name('laporan-detail');
-
+        // Jadwal
+        Route::get('/jadwal', 'JadwalController@index')->name('jadwal');
     });
 });

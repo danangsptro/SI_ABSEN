@@ -15,9 +15,7 @@ class CreateDataAbsensTable extends Migration
     {
         Schema::create('data_absens', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('kelas_id')->unsigned();
-            $table->bigInteger('pelajaran_id')->unsigned();
-            $table->bigInteger('guru_id')->unsigned();
+            $table->bigInteger('jadwal_id')->unsigned();
             $table->string('alfa')->nullable();
             $table->string('sakit')->nullable();
             $table->string('izin')->nullable();
@@ -25,9 +23,7 @@ class CreateDataAbsensTable extends Migration
             $table->date('tanggal_absen')->nullable();
             $table->timestamps();
 
-            $table->foreign('kelas_id')->references('id')->on('rombels')->onDelete('cascade');
-            $table->foreign('guru_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('pelajaran_id')->references('id')->on('mata_pelajarans')->onDelete('cascade');
+            // $table->foreign('jadwal_id')->references('id')->on('jadwals')->onDelete('cascade');
         });
     }
 

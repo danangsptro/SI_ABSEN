@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\dataAbsen;
+use App\Http\Model\Jadwal;
 use App\Http\Model\mataPelajaran;
 use App\Http\Model\Rombel;
 use App\Http\Model\Siswa;
@@ -14,8 +15,8 @@ class absenController extends Controller
 {
     public function index()
     {
-        $dataAbsen = dataAbsen::all();
-        return view('backend.absenSiswa.index', compact('dataAbsen'));
+        $dataPelajarans = Jadwal::where('guru_id', Auth::user()->id)->get();
+        return view('backend.absenSiswa.index', compact('dataPelajarans'));
     }
 
     public function create()
@@ -26,7 +27,7 @@ class absenController extends Controller
         return view('backend.absenSiswa.create', compact('siswa', 'mataPelajaran', 'guru'));
     }
 
-    public function show ($id)
+    public function show($id)
     {
         $siswa = Siswa::with('rombel')->get();
         $auth = Auth::user()->id;
@@ -71,7 +72,7 @@ class absenController extends Controller
         }
     }
 
-    public function edit ($id)
+    public function edit($id)
     {
         $dataAbsen = dataAbsen::find($id);
         $siswa = Siswa::all();

@@ -34,7 +34,7 @@
 
                 <h3 class="menu-title">Data</h3>
                 <li>
-                    <a href="{{ route('absen-siswa') }}"> <i class="menu-icon fa fa-folder"></i>Data Absen
+                    <a href="{{ route('jadwal') }}"> <i class="menu-icon fa fa-folder"></i>Data Jadwal
                     </a>
                 </li>
 
