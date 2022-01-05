@@ -2,12 +2,12 @@
 @section('title', 'ABSEN | Data Absen')
 @section('backend')
 <div class="mt-5">
-    <h1 id="ftd" class="mb-5">Data Jadwal Siswa</h1>
+    <h1 id="ftd" class="mb-5">Data Jadwal</h1>
     <div class="container-fluid">
         <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="menu-icon fa fa-mail-reply "></i> Kembali Halaman Dashboard</a>
-        <a href="{{ route('absen-siswa-tambah') }}" class="btn btn-warning"><i class="menu-icon fa fa-plus-square mr-2"></i>Tambah Data</a>
+        <a href="{{ route('jadwal.create') }}" class="btn btn-warning"><i class="menu-icon fa fa-plus-square mr-2"></i>Tambah Data</a>
         @if (session('message'))
-            <div class="col-sm-12">
+            <div class="mt-3">
                 <div class="alert  alert-success alert-dismissible fade show" role="alert">
                     <span class="badge badge-pill badge-success">Sukses</span> {{ session('message') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -25,21 +25,30 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Siswa </th>
-                            <th scope="col">Guru</th>
                             <th scope="col">Mapel</th>
+                            <th scope="col">Guru</th>
                             <th scope="col">Waktu</th>
+                            <th scope="col">Jumlah Siswa</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($dataJadwals as $d)
+                            @php
+                                $totalSiswa = App\Http\Model\JadwalSiswa::where('jadwal_id', $d->id)->count();
+                            @endphp
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $d->siswa->nama_lengkap}}</td>
-                                <td>{{ $d->guru->name }}</td>
                                 <td>{{ $d->pelajaran->nama_mata_pelajaran }}</td>
-                                <td><a href="{{route('absen-siswa-edit', $d->id)}}" class="btn btn-dark">Edit</a></td>
+                                <td>{{ $d->guru->name }}</td>
+                                <td><span class="text-uppercase">{{ $d->hari }}</span> | {{ $d->waktu }}</td>
+                                <td>
+                                    {{ $totalSiswa }} <a href="{{ route('jadwal.siswa', $d->id) }}"><i class="fa fa-user-plus text-success ml-2"></i></a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('jadwal.edit', $d->id) }}"><i class="fa fa-pencil mr-2 text-primary"></i></a>
+                                    <i class="fa fa-times text-danger"></i>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -15,7 +15,7 @@ class CreateDataAbsensTable extends Migration
     {
         Schema::create('data_absens', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('jadwal_id')->unsigned();
+            $table->bigInteger('jadwal_siswa_id')->unsigned();
             $table->string('alfa')->nullable();
             $table->string('sakit')->nullable();
             $table->string('izin')->nullable();
@@ -23,7 +23,7 @@ class CreateDataAbsensTable extends Migration
             $table->date('tanggal_absen')->nullable();
             $table->timestamps();
 
-            // $table->foreign('jadwal_id')->references('id')->on('jadwals')->onDelete('cascade');
+            $table->foreign('jadwal_siswa_id')->references('id')->on('jadwal_siswas')->onDelete('cascade');
         });
     }
 

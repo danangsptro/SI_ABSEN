@@ -39,18 +39,18 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/siswa/edit/{id}', 'siswaController@edit')->name('siswa-edit');
         Route::post('/siswa/update', 'siswaController@update')->name('siswa-update');
         Route::delete('/siswa/hapus/{id}', 'siswaController@delete')->name('siswa-hapus');
-        // Absen Siswa
+        // Absen Siswas
         Route::get('/absen-siswa', 'absenController@index')->name('absen-siswa');
-        Route::get('/absen-siswa/tambah', 'absenController@create')->name('absen-siswa-tambah');
         Route::get('/absen-siswa/show/{id}', 'absenController@show')->name('absen-siswa-show');
-        Route::post('/absen-siswa/store', 'absenController@store')->name('absen-siswa-tambah-post');
-        Route::get('/absen-siswa/edit/{id}', 'absenController@edit')->name('absen-siswa-edit');
-        Route::delete('/absen-siswa/hapus/{id}', 'absenController@delete')->name('absen-siswa-hapus');
         // Laporan
         Route::get('/laporan', 'laporanController@index')->name('laporan');
         Route::get('/laporan/show/{id}', 'laporanController@show')->name('laporan-show');
         Route::get('/laporan/detail-laporan/{id}', 'laporanController@detailLaporan')->name('laporan-detail');
         // Jadwal
         Route::get('/jadwal', 'JadwalController@index')->name('jadwal');
+        Route::get('/jadwal/tambah', 'JadwalController@create')->name('jadwal.create');
+        Route::post('/store', 'JadwalController@store')->name('jadwal.store');
+        Route::get('jadwal/edit/{id}', 'JadwalController@edit')->name('jadwal.edit');
+        Route::get('jadwal/siswa/{id}', 'JadwalController@siswa')->name('jadwal.siswa');
     });
 });

@@ -7,18 +7,18 @@ use Illuminate\Http\Request;
 
 class mataPelajaranController extends Controller
 {
-    public function index ()
+    public function index()
     {
         $mataPelajaran = mataPelajaran::all();
         return view('backend.mataPelajaran.index', compact('mataPelajaran'));
     }
 
-    public function create ()
+    public function create()
     {
         return view('backend.mataPelajaran.create');
     }
 
-    public function store (Request $request)
+    public function store(Request $request)
     {
         $validate = $request->validate([
             'nama_mata_pelajaran' => 'required|unique:mata_pelajarans,nama_mata_pelajaran',
@@ -28,12 +28,12 @@ class mataPelajaranController extends Controller
         $mataPelajarn->nama_mata_pelajaran = $validate['nama_mata_pelajaran'];
         $mataPelajarn->save();
 
-        if($mataPelajarn){
+        if ($mataPelajarn) {
             return redirect('backend/mata-pelajaran')->with([
                 'message' => "Menambahkan Mata Pelajaran $mataPelajarn->nama_mata_pelajaran",
                 'style' => 'success'
             ]);
-        }else{
+        } else {
             return redirect('backend/mata-pelajaran')->with([
                 'message' => 'Gagal Menambahkan Mata Pelajaran',
                 'style' => 'error'
@@ -41,13 +41,13 @@ class mataPelajaranController extends Controller
         }
     }
 
-    public function edit ($id)
+    public function edit($id)
     {
         $mataPelajaran = mataPelajaran::find($id);
         return view('backend.mataPelajaran.edit', compact('mataPelajaran'));
     }
 
-    public function update (Request $request)
+    public function update(Request $request)
     {
         $request->validate([
             'nama_mata_pelajaran' => 'required|unique:mata_pelajarans,nama_mata_pelajaran',
@@ -61,31 +61,30 @@ class mataPelajaranController extends Controller
             ]);
         }
 
-        if($mataPelajaran){
+        if ($mataPelajaran) {
             return redirect('backend/mata-pelajaran')->with([
                 'message' => "Mengubah Mata Pelajaran $mataPelajaran->nama_mata_pelajaran",
                 'style' => 'success'
             ]);
-        }else{
+        } else {
             return redirect('backend/mata-pelajaran')->with([
                 'message' => "Gagal Mengubah Mata Pelajaran $mataPelajaran->nama_mata_pelajaran",
                 'style' => 'error'
             ]);
         }
-
     }
 
-    public function delete ($id)
+    public function delete($id)
     {
         $mataPelajaran = mataPelajaran::find($id);
         $mataPelajaran->delete();
 
-        if($mataPelajaran){
+        if ($mataPelajaran) {
             return redirect('backend/mata-pelajaran')->with([
                 'message' => "Menghapus Mata Pelajaran $mataPelajaran->nama_mata_pelajaran",
                 'style' => 'success'
             ]);
-        }else{
+        } else {
             return redirect('backend/mata-pelajaran')->with([
                 'message' => "Gagal Menghapus Mata Pelajaran $mataPelajaran->nama_mata_pelajaran",
                 'style' => 'error'

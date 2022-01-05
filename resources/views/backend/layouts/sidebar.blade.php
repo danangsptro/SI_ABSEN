@@ -32,23 +32,26 @@
 
                 @endif
 
-                <h3 class="menu-title">Data</h3>
-                <li>
-                    <a href="{{ route('jadwal') }}"> <i class="menu-icon fa fa-folder"></i>Data Jadwal
-                    </a>
-                </li>
-
                 @if (Auth::user()->user_role == 'staff')
+                <h3 class="menu-title">Data</h3>
                 <li>
                     <a href={{ route('siswa') }}> <i class="menu-icon fa fa-folder"></i>Data Siswa
                     </a>
                 </li>
-
+                <li>
+                    <a href="{{ route('jadwal') }}"> <i class="menu-icon fa fa-folder"></i>Data Jadwal
+                    </a>
+                </li>
                 @endif
 
+                @if (Auth::user()->user_role == 'guru')
+                <h3 class="menu-title">Data</h3>
                 <li>
-                    <a href='{{route('laporan')}}'> <i class="menu-icon fa fa-list-alt"></i>Laporan
-                    </a>
+                    <a href="{{ route('absen-siswa') }}"> <i class="menu-icon fa fa-folder"></i>Data Absen</a>
+                </li>
+                @endif
+                <li>
+                    <a href='{{route('laporan')}}'> <i class="menu-icon fa fa-list-alt"></i>Laporan</a>
                 </li>
 
 
