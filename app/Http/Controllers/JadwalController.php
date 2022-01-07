@@ -64,12 +64,51 @@ class JadwalController extends Controller
 
     public function edit($id)
     {
-        // 
+        $jadwal = Jadwal::find($id);
+        $mapels = mataPelajaran::all();
+        $gurus  = User::where('user_role', 'guru')->get();
+        $haris  = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"];
+
+        $waktu_mulai = substr($jadwal->waktu, 0, 5);
+        $waktu_selesai = substr($jadwal->waktu, 6);
+
+        $edit = true;
+
+        return view('backend.jadwal.form', compact(
+            'jadwal',
+            'gurus',
+            'mapels',
+            'haris',
+            'waktu_mulai',
+            'waktu_selesai',
+            'edit'
+        ));
     }
 
-    public function update(Request $request)
+    public function updateJadwal(Request $request, $id)
     {
-        // 
+        $request->validate([
+            'guru_id' => 'required',
+            'pelajaran_id' => 'required',
+            'hari' => 'required',
+            'waktu_mulai' => 'required',
+            'waktu_selesai' => 'required'
+        ]);
+
+        $datas = [
+            'guru_id' => $request->guru_id,
+            'pelajaran_id' => $request->pelajaran_id,
+            'hari' => $request->hari,
+            'waktu' => $request->waktu_mulai . '-' . $request->waktu_selesai
+        ];
+
+        $jadwal = Jadwal::find($id);
+        $jadwal->update($datas);
+
+        return redirect('backend/jadwal')->with([
+            'message' => "Berhasil memperbaharui data",
+            'style'   => 'success'
+        ]);
     }
 
     public function show($id)
@@ -149,5 +188,15 @@ class JadwalController extends Controller
                 'message' => "Siswa Berhasil dihapus",
                 'style'   => 'success'
             ]);
+    }
+
+    public function destroy($id)
+    {
+        Jadwal::destroy($id);
+
+        return redirect('backend/jadwal')->with([
+            'message' => "Berhasil menghapus data",
+            'style'   => 'success'
+        ]);
     }
 }

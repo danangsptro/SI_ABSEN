@@ -51,5 +51,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/jadwal/api', 'JadwalController@api')->name('jadwal.api');
         Route::get('/jadwal/export/siswa', 'JadwalController@exportSiswa')->name('jadwal.exportSiswa');
         Route::get('/jadwa/siswa/delete/{id}', 'JadwalController@deleteSiswa')->name('jadwal.deleteSiswa');
+        Route::post('/jadwal/update/jadwal/{id}', 'JadwalController@updateJadwal')->name('jadwal.updateJadwal');
     });
 });

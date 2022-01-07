@@ -47,7 +47,12 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('jadwal.edit', $d->id) }}"><i class="fa fa-pencil mr-2 text-primary"></i></a>
-                                    <i class="fa fa-times text-danger"></i>
+                                    <form action="{{route('jadwal.destroy', $d->id)}}" class="d-inline"
+                                        method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger btn-sm" onclick="return confirm('ANDA YAKIN INGIN MENGHAPUS ?') "style="border-radius: 5rem"><i class="menu-icon fa fa-minus-circle"></i> HAPUS</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
