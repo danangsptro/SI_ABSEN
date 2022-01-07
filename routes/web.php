@@ -47,10 +47,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/laporan/show/{id}', 'laporanController@show')->name('laporan-show');
         Route::get('/laporan/detail-laporan/{id}', 'laporanController@detailLaporan')->name('laporan-detail');
         // Jadwal
-        Route::get('/jadwal', 'JadwalController@index')->name('jadwal');
-        Route::get('/jadwal/tambah', 'JadwalController@create')->name('jadwal.create');
-        Route::post('/store', 'JadwalController@store')->name('jadwal.store');
-        Route::get('jadwal/edit/{id}', 'JadwalController@edit')->name('jadwal.edit');
-        Route::get('jadwal/siswa/{id}', 'JadwalController@siswa')->name('jadwal.siswa');
+        Route::resource('/jadwal', 'JadwalController');
+        Route::post('/jadwal/api', 'JadwalController@api')->name('jadwal.api');
+        Route::get('/jadwal/export/siswa', 'JadwalController@exportSiswa')->name('jadwal.exportSiswa');
+        Route::get('/jadwa/siswa/delete/{id}', 'JadwalController@deleteSiswa')->name('jadwal.deleteSiswa');
     });
 });

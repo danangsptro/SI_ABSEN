@@ -13,6 +13,7 @@
     <title>@yield('title')</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <link rel="apple-touch-icon" href="apple-icon.png"> --}}
     {{-- <link rel="shortcut icon" href="{{ asset('assets/img/Logo-Puskesmas.png') }}"> --}}
@@ -70,6 +71,9 @@
 <script src="{{asset('assets/js/dataTables.buttons.min.js')}}"></script>
 <script src="{{asset('assets/js/buttons.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/js/datatables-init.js')}}"></script>
+<script type="text/javascript">
+    $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+</script>
 
 @yield('js')
 

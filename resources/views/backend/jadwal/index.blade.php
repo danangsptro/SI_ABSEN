@@ -43,7 +43,7 @@
                                 <td>{{ $d->guru->name }}</td>
                                 <td><span class="text-uppercase">{{ $d->hari }}</span> | {{ $d->waktu }}</td>
                                 <td>
-                                    {{ $totalSiswa }} <a href="{{ route('jadwal.siswa', $d->id) }}"><i class="fa fa-user-plus text-success ml-2"></i></a>
+                                    {{ $totalSiswa }} <a href="{{ route('jadwal.show', $d->id) }}"><i class="fa fa-user-plus text-success ml-2"></i></a>
                                 </td>
                                 <td>
                                     <a href="{{ route('jadwal.edit', $d->id) }}"><i class="fa fa-pencil mr-2 text-primary"></i></a>

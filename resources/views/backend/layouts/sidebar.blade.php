@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('jadwal') }}"> <i class="menu-icon fa fa-folder"></i>Data Jadwal
+                    <a href="{{ route('jadwal.index') }}"> <i class="menu-icon fa fa-folder"></i>Data Jadwal
                     </a>
                 </li>
                 @endif
