@@ -54,5 +54,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/jadwal/export/siswa', 'JadwalController@exportSiswa')->name('jadwal.exportSiswa');
         Route::get('/jadwa/siswa/delete/{id}', 'JadwalController@deleteSiswa')->name('jadwal.deleteSiswa');
         Route::post('/jadwal/update/jadwal/{id}', 'JadwalController@updateJadwal')->name('jadwal.updateJadwal');
+        // Data Absen
+        Route::get('/data-absen', 'DataAbsenController@index')->name('dataAbsen.index');
+        Route::post('/data-absen/api', 'DataAbsenController@api')->name('dataAbsen.api');
+        Route::get('/data-absen/edit/{id}', 'DataAbsenController@edit')->name('dataAbsen.edit');
+        Route::post('/data-absen/update/{id}', 'DataAbsenController@update')->name('dataAbsen.update');
     });
 });

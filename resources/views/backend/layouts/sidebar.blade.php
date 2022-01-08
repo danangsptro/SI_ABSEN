@@ -42,6 +42,10 @@
                     <a href="{{ route('jadwal.index') }}"> <i class="menu-icon fa fa-folder"></i>Data Jadwal
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('dataAbsen.index') }}"> <i class="menu-icon fa fa-folder"></i>Data Absen
+                    </a>
+                </li>
                 @endif
 
                 @if (Auth::user()->user_role == 'guru')
