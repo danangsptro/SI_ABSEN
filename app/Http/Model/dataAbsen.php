@@ -16,7 +16,7 @@ class dataAbsen extends Model
 
     public static function queryTable($jadwal_id, $pertemuan)
     {
-        $datas =  dataAbsen::select('data_absens.id as id', 'jadwal_siswa_id')
+        $datas =  dataAbsen::select('data_absens.id as id', 'jadwal_siswa_id', 'data_absens.created_at as created_at')
             ->join('jadwal_siswas', 'jadwal_siswas.id', '=', 'data_absens.jadwal_siswa_id')->where('jadwal_siswas.jadwal_id', $jadwal_id)
             ->where('data_absens.pertemuan', $pertemuan)->get();
 

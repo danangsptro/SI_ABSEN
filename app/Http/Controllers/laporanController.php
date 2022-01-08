@@ -34,7 +34,21 @@ class laporanController extends Controller
                 return $d->jadwalSiswa->siswa->rombel->kelas;
             })
             ->addColumn('status', function ($d) {
-                return '-';
+                if ($d->alfa != null) {
+                    return 'Alfa';
+                }
+                if ($d->sakit != null) {
+                    return 'Sakit';
+                }
+                if ($d->izin != null) {
+                    return 'Izin';
+                }
+                if ($d->terlambat != null) {
+                    return 'Terlambat';
+                }
+                if ($d->alfa == null && $d->sakit == null && $d->izin == null && $d->terlambat == null) {
+                    return 'Ada';
+                }
             })
             ->addIndexColumn()
             ->toJson();
@@ -46,10 +60,14 @@ class laporanController extends Controller
         $pertemuan = $request->pertemuan;
 
         $datas = dataAbsen::queryTable($jadwal_id, $pertemuan);
+        $jadwal = Jadwal::find($jadwal_id);
 
         $pdf = app('dompdf.wrapper');
         $pdf->getDomPDF()->set_option("enable_php", true);
-        $pdf->loadView('backend.laporan.detailLaporan', compact('datas'));
+        $pdf->loadView('backend.laporan.detailLaporan', compact(
+            'datas',
+            'jadwal'
+        ));
 
         return $pdf->stream("Laporan.pdf");
     }

@@ -16,7 +16,7 @@
                 </div>
             </div> 
             <div class="form-group row">
-                <label for="opd" class="col-form-label s-12 col-md-3 text-right font-weight-bolder">Kelas : </label>
+                <label for="opd" class="col-form-label s-12 col-md-3 text-right font-weight-bolder">Pertemuan : </label>
                 <div class="col-md-6">
                     <input type="text" id="pertemuan" class="form-control">
                 </div>
@@ -40,7 +40,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Siswa</th>
                             <th scope="col">Kelas</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
