@@ -52,7 +52,6 @@ class absenController extends Controller
             ->addColumn('action', function ($d) {
                 $time = Carbon::now();
                 $today = $time->format('Y-m-d');
-                $today = '2022-07-09';
 
                 $check = dataAbsen::where('jadwal_siswa_id', $d->id)->where('tanggal_absen', $today)->first();
 
