@@ -2,31 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Model\dataAbsen;
-use App\Http\Model\mataPelajaran;
-use App\Http\Model\Rombel;
+use DataTables;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
+// Models
+use App\Http\Model\Jadwal;
+use App\Http\Model\dataAbsen;
 
 class laporanController extends Controller
 {
     public function index()
     {
-        $kelas = Rombel::all();
-        return view('backend.laporan.index', compact('kelas'));
+        $jadwals = Jadwal::all();
+
+        return view('backend.laporan.index', compact('jadwals'));
     }
 
-    public function show ()
+    public function api(Request $request)
     {
-        $mataPelajaran = mataPelajaran::with('dataAbsen')->get();
-        return view('backend.laporan.show', compact('mataPelajaran'));
+        $jadwal_id = $request->jadwal_id;
+        $pertemuan = $request->pertemuan;
+
+        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan);
+
+        return Datatables::of($datas)
+            ->addColumn('siswa', function ($d) {
+                return $d->jadwalSiswa->siswa->nama_lengkap;
+            })
+            ->addColumn('kelas', function ($d) {
+                return $d->jadwalSiswa->siswa->rombel->kelas;
+            })
+            ->addColumn('status', function ($d) {
+                return '-';
+            })
+            ->addIndexColumn()
+            ->toJson();
     }
 
-    public function detailLaporan ($id)
+    public function exportPDF(Request $request)
     {
-       $mataPelajaran = mataPelajaran::addSelect(['id', 'nama_pelajaran'])->find($id);
-        dd($mataPelajaran);
+        $jadwal_id = $request->jadwal_id;
+        $pertemuan = $request->pertemuan;
 
-        return view('backend.laporan.detailLaporan', compact('mataPelajaran'));
+        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan);
+
+        $pdf = app('dompdf.wrapper');
+        $pdf->getDomPDF()->set_option("enable_php", true);
+        $pdf->loadView('backend.laporan.detailLaporan', compact('datas'));
+
+        return $pdf->stream("Laporan.pdf");
     }
 }

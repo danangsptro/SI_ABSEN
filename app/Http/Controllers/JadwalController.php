@@ -10,10 +10,10 @@ use App\Http\Controllers\Controller;
 // Models
 use App\User;
 use App\Http\Model\Siswa;
+use App\Http\Model\Rombel;
 use App\Http\Model\Jadwal;
 use App\Http\Model\JadwalSiswa;
 use App\Http\Model\mataPelajaran;
-use App\Http\Model\Rombel;
 
 class JadwalController extends Controller
 {

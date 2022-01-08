@@ -41,11 +41,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/siswa/hapus/{id}', 'siswaController@delete')->name('siswa-hapus');
         // Absen Siswas
         Route::get('/absen-siswa', 'absenController@index')->name('absen-siswa');
-        Route::get('/absen-siswa/show/{id}', 'absenController@show')->name('absen-siswa-show');
+        Route::get('/absen-siswa/{id}', 'absenController@show')->name('absen-siswa-show');
+        Route::post('/absen-siswa/api', 'absenController@api')->name('absen-siswa.api');
+        Route::get('/abse-siswa/absen/{id}', 'absenController@absen')->name('absen-siswa.absen');
         // Laporan
         Route::get('/laporan', 'laporanController@index')->name('laporan');
-        Route::get('/laporan/show/{id}', 'laporanController@show')->name('laporan-show');
-        Route::get('/laporan/detail-laporan/{id}', 'laporanController@detailLaporan')->name('laporan-detail');
+        Route::post('/laporan/api', 'laporanController@api')->name('laporan.api');
+        Route::get('/laporan/export-pdf', 'laporanController@exportPDF')->name('laporan.exportPDF');
         // Jadwal
         Route::resource('/jadwal', 'JadwalController');
         Route::post('/jadwal/api', 'JadwalController@api')->name('jadwal.api');

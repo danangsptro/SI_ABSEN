@@ -29,7 +29,7 @@
                                 <td>{{ $d->waktu }}</td>
                                 <td>
                                     @if ($getDay == $d->hari)
-                                    <a href="#" class="btn btn-dark">Absen</a>
+                                    <a href="{{ route('absen-siswa-show', $d->id) }}" class="btn btn-dark">Absen</a>
                                     @else
                                     <span>Belum dibuka.</span>       
                                     @endif

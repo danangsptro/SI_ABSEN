@@ -1,52 +1,41 @@
-@extends('backend.masterbackend')
-@section('title', 'ABSEN | LAPORAN')
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Laporan</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<style type="text/css">
+		table tr td,
+		table tr th{
+			font-size: 9pt;
+		}
+	</style>
+    <p class="text-center font-weight-bold">Laporan Absen Siswa</p>
+	<table class='table table-bordered'>
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Mapel</th>
+                <th>Guru</th>
+				<th>Siswa</th>
+				<th>Kelas</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($datas as $p)
+			<tr>
+				<td class="text-center">{{ $loop->iteration }}</td>
+				<td>{{ $p->jadwalSiswa->jadwal->pelajaran->nama_mata_pelajaran }}</td>
+                <td>{{ $p->jadwalSiswa->jadwal->guru->name }}</td>
+                <td>{{ $p->jadwalSiswa->siswa->nama_lengkap }}</td>
+                <td>{{ $p->jadwalSiswa->siswa->rombel->kelas }}</td>
+                <td>-</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
 
-
-@section('backend')
-    <br>
-    <br>
-    <h1 id="ftd">Data Detail Laporan</h1>
-    <br>
-    <div class="container-fluid">
-        <a href="{{ route('laporan') }}" class="btn btn-primary"><i class="menu-icon fa fa-mail-reply "></i> Kembali
-            Halaman
-            Laporan</a>
-        <div class="card">
-            <div class="card-header">
-                <strong class="card-title">Data Table</strong>
-            </div>
-            <div class="card-body">
-                <table id="bootstrap-data-table-export" class="table table-striped table-bordered ftd">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nama Siswa </th>
-                            <th scope="col">Mata Pelajaran </th>
-                            <th scope="col">Alfa</th>
-                            <th scope="col">Sakit</th>
-                            <th scope="col">Izin</th>
-                            <th scope="col">Terlambat</th>
-                            <th scope="col">Tanggal Absen</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($mataPelajaran as $d)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $d->siswa->nama_lengkap }} | {{$d->siswa->rombel->kelas}}</td>
-                                <td>{{ $d->mataPelajaran->nama_mata_pelajaran}}</td>
-                                <td>{{ $d->alfa }}</td>
-                                <td>{{ $d->sakit }}</td>
-                                <td>{{ $d->izin }}</td>
-                                <td>{{ $d->terlambat }}</td>
-                                <td>{{ $d->tanggal_absen }}</td>
-
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-@endsection
+</body>
+</html>
