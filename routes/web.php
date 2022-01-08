@@ -12,6 +12,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Frontend
+Route::get('/home-page', 'FrontendController@index')->name('home');
+
+// Backend
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('backend')->group(function () {
         Route::get('/dashboard', 'dashboardAdminController@index')->name('dashboard');

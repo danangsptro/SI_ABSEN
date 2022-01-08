@@ -48,6 +48,13 @@
                 </li>
                 @endif
 
+                @if (Auth::user()->user_role == 'walikelas')
+                <li>
+                    <a href="{{ route('dataAbsen.index') }}"> <i class="menu-icon fa fa-folder"></i>Data Absen
+                    </a>
+                </li>
+                @endif
+
                 @if (Auth::user()->user_role == 'guru')
                 <h3 class="menu-title">Data</h3>
                 <li>
