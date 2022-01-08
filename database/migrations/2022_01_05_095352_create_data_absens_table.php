@@ -20,6 +20,7 @@ class CreateDataAbsensTable extends Migration
             $table->string('sakit')->nullable();
             $table->string('izin')->nullable();
             $table->string('terlambat')->nullable();
+            $table->string('pertemuan')->nullable();
             $table->date('tanggal_absen')->nullable();
             $table->timestamps();
 
