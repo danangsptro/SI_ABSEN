@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <div class="form-group row">
-                <label for="opd" class="col-form-label s-12 col-md-3 text-right font-weight-bolder">Kelas : </label>
+                <label for="opd" class="col-form-label s-12 col-md-3 text-right font-weight-bolder">Jadwal : </label>
                 <div class="col-md-6">
                     <select name="jadwal_id" id="jadwal_id" class="select2 form-control r-0 light s-12">
                         <option value="0">Pilih</option>
