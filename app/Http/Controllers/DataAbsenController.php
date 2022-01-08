@@ -112,7 +112,7 @@ class DataAbsenController extends Controller
                     'alfa' => null,
                     'sakit' => null,
                     'izin' => null,
-                    'terlambat' => 5
+                    'terlambat' => 1
                 ]);
                 break;
             default:
