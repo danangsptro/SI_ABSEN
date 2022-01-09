@@ -23,6 +23,10 @@
                     <label class="col-md-2 text-right"><strong>Waktu:</strong></label>
                     <label class="col-md-10 s-12">{{ $jadwal->waktu }}</label>
                 </div>
+                <div class="row">
+                    <label class="col-md-2 text-right"><strong>Pertemuan:</strong></label>
+                    <label class="col-md-10 s-12">{{ $pertemuan }}</label>
+                </div>
             </div>
         </div>
     </div>

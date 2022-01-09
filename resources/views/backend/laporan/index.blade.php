@@ -16,6 +16,17 @@
                 </div>
             </div> 
             <div class="form-group row">
+                <label for="opd" class="col-form-label s-12 col-md-3 text-right font-weight-bolder">Kelas : </label>
+                <div class="col-md-6">
+                    <select name="kelas_id" id="kelas_id" class="select2 form-control r-0 light s-12">
+                        <option value="0">Pilih</option>
+                        @foreach ($kelas as $i)
+                            <option value="{{ $i->id }}">{{ $i->kelas }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div> 
+            <div class="form-group row">
                 <label for="opd" class="col-form-label s-12 col-md-3 text-right font-weight-bolder">Pertemuan : </label>
                 <div class="col-md-6">
                     <input type="text" id="pertemuan" class="form-control">
@@ -63,6 +74,7 @@
             method: 'POST',
             data: function (data) {
                 data.jadwal_id = $('#jadwal_id').val();
+                data.kelas_id = $('#kelas_id').val();
                 data.pertemuan = $('#pertemuan').val();
             }
         },
@@ -79,8 +91,9 @@
 
         var pertemuan = $('#pertemuan ').val();
         var jadwal_id = $('#jadwal_id').val();
+        var kelas_id  = $('#kelas_id').val();
 
-        params =  jadwal_id + "&pertemuan=" + pertemuan;
+        params =  jadwal_id + "&pertemuan=" + pertemuan + "&kelas_id=" + kelas_id;
         url = "{{ route('laporan.exportPDF') }}?jadwal_id=" + params
         $('#exportSiswa').attr('href', url)
     }

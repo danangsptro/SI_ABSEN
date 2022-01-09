@@ -28,11 +28,11 @@
                                 <td>{{ $d->hari }}</td>
                                 <td>{{ $d->waktu }}</td>
                                 <td>
-                                    {{-- @if ($getDay == $d->hari) --}}
+                                    @if ($getDay == $d->hari)
                                     <a href="{{ route('absen-siswa-show', $d->id) }}" class="btn btn-dark">Absen</a>
-                                    {{-- @else --}}
-                                    {{-- <span>Belum dibuka.</span>        --}}
-                                    {{-- @endif --}}
+                                    @else
+                                    <span>Belum dibuka.</span>       
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use DataTables;
 
 use Illuminate\Http\Request;
@@ -9,22 +10,28 @@ use Illuminate\Http\Request;
 // Models
 use App\Http\Model\Jadwal;
 use App\Http\Model\dataAbsen;
+use App\Http\Model\Rombel;
 
 class laporanController extends Controller
 {
     public function index()
     {
-        $jadwals = Jadwal::all();
+        $jadwals = Jadwal::where('guru_id', Auth::user()->id)->get();
+        $kelas   = Rombel::select('id', 'kelas')->get();
 
-        return view('backend.laporan.index', compact('jadwals'));
+        return view('backend.laporan.index', compact(
+            'jadwals',
+            'kelas'
+        ));
     }
 
     public function api(Request $request)
     {
         $jadwal_id = $request->jadwal_id;
+        $kelas_id  = $request->kelas_id;
         $pertemuan = $request->pertemuan;
 
-        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan);
+        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan, $kelas_id);
 
         return Datatables::of($datas)
             ->addColumn('siswa', function ($d) {
@@ -58,8 +65,9 @@ class laporanController extends Controller
     {
         $jadwal_id = $request->jadwal_id;
         $pertemuan = $request->pertemuan;
+        $kelas_id  = $request->kelas_id;
 
-        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan);
+        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan, $kelas_id);
         $jadwal = Jadwal::find($jadwal_id);
 
         $pdf = app('dompdf.wrapper');

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 // Models
 use App\Http\Model\Jadwal;
+use App\Http\Model\Rombel;
 use App\Http\Model\dataAbsen;
 
 class DataAbsenController extends Controller
@@ -15,16 +16,21 @@ class DataAbsenController extends Controller
     public function index()
     {
         $jadwals = Jadwal::all();
+        $kelas   = Rombel::select('id', 'kelas')->get();
 
-        return view('backend.dataAbsen.index', compact('jadwals'));
+        return view('backend.dataAbsen.index', compact(
+            'jadwals',
+            'kelas'
+        ));
     }
 
     public function api(Request $request)
     {
         $jadwal_id = $request->jadwal_id;
+        $kelas_id  = $request->kelas_id;
         $pertemuan = $request->pertemuan;
 
-        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan);
+        $datas = dataAbsen::queryTable($jadwal_id, $pertemuan, $kelas_id);
 
         return Datatables::of($datas)
             ->addColumn('siswa', function ($d) {

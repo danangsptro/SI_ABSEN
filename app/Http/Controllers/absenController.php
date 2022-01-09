@@ -33,7 +33,13 @@ class absenController extends Controller
         $jadwal = Jadwal::find($id);
         $siswas = JadwalSiswa::where('jadwal_id', $id)->get();
 
-        return view('backend.absenSiswa.show', compact('jadwal'));
+        $checkPertemuan = dataAbsen::where('jadwal_siswa_id', $id)->count();
+        $pertemuan = $checkPertemuan + 1;
+
+        return view('backend.absenSiswa.show', compact(
+            'jadwal',
+            'pertemuan'
+        ));
     }
 
     public function api(Request $request)
@@ -56,7 +62,22 @@ class absenController extends Controller
                 $check = dataAbsen::where('jadwal_siswa_id', $d->id)->where('tanggal_absen', $today)->first();
 
                 if ($check) {
-                    return Carbon::createFromFormat('Y-m-d H:i:s', $check->created_at)->format('d M Y | H:i:s');
+                    if ($check->alfa == 1) {
+                        $status = 'Alfa';
+                    }
+                    if ($check->sakit == 1) {
+                        $status = 'Sakit';
+                    }
+                    if ($check->izin == 1) {
+                        $status = 'Izin';
+                    }
+                    if ($check->terlambat == 1) {
+                        $status = 'Terlambat';
+                    }
+                    if ($check->alfa == null && $check->sakit == null && $check->izin == null && $check->terlambat == null) {
+                        $status = 'Ada';
+                    }
+                    return Carbon::createFromFormat('Y-m-d H:i:s', $check->created_at)->format('d M Y | H:i:s') . ' (' . $status . ')';
                 } else {
                     return "<a href='#' onclick='absen(" . $d->id . ", 1)' class='btn btn-sm btn-success'><i class='fa fa-check mr-1'></i>Absen</a>
                             <a href='#' onclick='absen(" . $d->id . ", 2)' class='btn btn-sm btn-danger'><i class='fa fa-check mr-1'></i>Alfa</a>
