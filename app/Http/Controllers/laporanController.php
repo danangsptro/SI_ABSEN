@@ -16,7 +16,15 @@ class laporanController extends Controller
 {
     public function index()
     {
-        $jadwals = Jadwal::where('guru_id', Auth::user()->id)->get();
+        $role = Auth::user()->user_role;
+
+        if ($role == 'guru') {
+            $jadwals = Jadwal::where('guru_id', Auth::user()->id)->get();
+        } else {
+            $jadwals = Jadwal::all();
+        }
+
+
         $kelas   = Rombel::select('id', 'kelas')->get();
 
         return view('backend.laporan.index', compact(
