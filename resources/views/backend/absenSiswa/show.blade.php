@@ -16,7 +16,7 @@
                     <label class="col-md-10 s-12">{{ $jadwal->guru->name }}</label>
                 </div>
                 <div class="row">
-                    <label class="col-md-2 text-right"><strong>Hai:</strong></label>
+                    <label class="col-md-2 text-right"><strong>Hari:</strong></label>
                     <label class="col-md-10 s-12">{{ $jadwal->hari }}</label>
                 </div>
                 <div class="row">

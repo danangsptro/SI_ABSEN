@@ -17,8 +17,9 @@
 <body>
     <!-- As a heading -->
     <nav class="navbar navbar-light bg-warning">
-        <span class="navbar-brand mb-0 h1 container-fluid"><h4><span class="badge bg-dark" style="color: white; padding:1rem">Home Page Data Absen Siswa</span></h4>
-    </span>
+        <span class="navbar-brand mb-0 h1 container-fluid">
+            <h4><span class="badge bg-dark" style="color: white; padding:1rem">Home Page Data Absen Siswa</span></h4>
+        </span>
     </nav>
 
     <div class="card mt-4 container">
@@ -33,6 +34,7 @@
                         <th scope="col">Kelas</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Mata Pelajaran</th>
+                        <th scope="col">Masuk Kelas</th>
                         <th scope="col">Alfa</th>
                         <th scope="col">Sakit</th>
                         <th scope="col">Izin</th>
@@ -41,19 +43,44 @@
                     </tr>
                 </thead>
                 @foreach ($data as $d)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $d->jadwalSiswa->siswa->rombel->kelas }}</td>
-                    <td>{{ $d->jadwalSiswa->siswa->nama_lengkap }}</td>
-                    <td>{{ $d->jadwalSiswa->jadwal->pelajaran->nama_mata_pelajaran }}</td>
-                    <td>{{ $d->alfa ? $d->alfa : '-' }}</td>
-                    <td>{{ $d->sakit ? $d->sakit : '-' }}</td>
-                    <td>{{ $d->izin ? $d->izin : '-' }}</td>
-                    <td>{{ $d->terlambat ? $d->terlambat : '-' }}</td>
-                    <td>{{ $d->pertemuan ? $d->pertemuan : '-' }}</td>
-                </tr>
-            @endforeach
-        </tbody>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $d->jadwalSiswa->siswa->rombel->kelas }}</td>
+                        <td>{{ $d->jadwalSiswa->siswa->nama_lengkap }}</td>
+                        <td>{{ $d->jadwalSiswa->jadwal->pelajaran->nama_mata_pelajaran }}</td>
+                        @if (!$d->alfa && !$d->sakit && !$d->izin && !$d->terlambat)
+                            <td class="text-center"><img src="{{ asset('assets/img/centang.png') }}" width="20px"
+                                    alt=""></td>
+                        @else
+                            <td class="text-center">-</td>
+                        @endif
+                        @if ($d->alfa)
+                            <td class="text-center"><img src="{{asset('assets/img/A.png')}}" width="20px" alt=""></td>
+                        @else
+                            <td class="text-center">-</td>
+
+                        @endif
+                        @if ($d->izin)
+                            <td class="text-center"><img src="{{ asset('assets/img/s.png') }}" width="20px" alt="">
+                            </td>
+                        @else
+                            <td class="text-center">-</td>
+                        @endif
+                        @if ($d->izin)
+                            <td class="text-center"><img src="{{ asset('assets/img/I.png') }}" width="20px" alt="">
+                            </td>
+                        @else
+                            <td class="text-center">-</td>
+                        @endif
+                        @if ($d->terlambat)
+                            <td class="text-center"><img src="{{ asset('assets/img/T.png') }}" class="bg-dark" width="20px" alt=""></td>
+                        @else
+                            <td class="text-center">-</td>
+                        @endif
+                        <td class="text-center">{{ $d->pertemuan ? $d->pertemuan : '-' }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
             </table>
         </div>
     </div>
@@ -65,9 +92,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
 {{-- datatable --}}
-<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('assets/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/js/datatables-init.js')}}"></script>
-
+<script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/js/datatables-init.js') }}"></script>
